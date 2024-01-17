@@ -15,6 +15,7 @@ import { API } from '../../axios/endpoint';
 import Load from './compo/Load';
 
 function TextPDF() {
+  const pdfUrl = pdfread2;
   const headers = [
     'filename',
     'chapter',
@@ -42,7 +43,6 @@ function TextPDF() {
     'category_page',
     'anotherLV',
   ];
-  const pdfUrl = pdfread2;
   const [loading, setLoading] = useState<boolean>(false);
   const [numPages, setNumPages] = useState<any>(null);
   const [pageNumber, setPageNumber] = useState(1);

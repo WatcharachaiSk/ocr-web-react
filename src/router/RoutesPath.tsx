@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import HomePage from "../pages/home/HomePage";
+import PathRoutesPage from "./pathPage";
 import TextPDF from "../pages/pdf/TextPDF";
 
 //test
@@ -8,6 +10,7 @@ function RoutesPath() {
   return (
     <>
       <Routes>
+        <Route path={PathRoutesPage.home} element={<HomePage />} />
         <Route path={'/'} element={<TextPDF />} />
       </Routes>
     </>

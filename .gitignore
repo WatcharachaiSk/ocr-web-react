@@ -65,6 +65,8 @@ web_modules/
 
 # Optional REPL history
 .node_repl_history
+.package-lock.json
+.bun.lockb
 
 # Output of 'npm pack'
 *.tgz
