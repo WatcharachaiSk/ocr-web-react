@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 function TdInput(props: any) {
-  const [filename, setFilename] = useState('');
-  const [chapter, setChapter] = useState('');
+  const [filename, setFilename] = useState('24-3-18(1)');
+  const [chapter, setChapter] = useState('เล่มที่ 18(1)');
   const [page, setPage] = useState('');
-  const [ministry, setMinistry] = useState('');
-  const [department, setDepartment] = useState('');
-  const [budget_plan_type, setBudget_plan_type] = useState('');
+  const [ministry, setMinistry] = useState('แผนงานบูรณาการ (1)');
+  const [department, setDepartment] = useState('แผนงานบูรณาการต่อต้านการทุจริตและประพฤติมิชอบ');
+  const [budget_plan_type, setBudget_plan_type] = useState('โครงการ');
   const [budget_plan_name, setBudget_plan_name] = useState('');
   const [budget_plan_amount, setBudget_plan_amount] = useState('');
   const [off_budget_money, setOff_budget_money] = useState('');

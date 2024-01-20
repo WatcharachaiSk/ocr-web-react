@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { Document, Page } from 'react-pdf';
 // import { PDF } from '../../configs/pdf-index';
-import pdfread2 from '../../assets/pdf/1703580428_6022.pdf';
+import pdfread2 from '../../assets/pdf/18(1).pdf';
 import Tesseract from 'tesseract.js';
 import Dropzone from 'react-dropzone';
 import _ from 'lodash';
@@ -93,13 +93,7 @@ function TextPDF() {
 
       const resultObject: any = {};
       for (let i: any = 0; i < headers.length; i++) {
-        if (i == 10) {
-          // console.log(`i is ${i - 10} match is ${match[i - 10]}`);
-          // console.log('match is ', match[i]);
-          resultObject[headers[i]] = match[i - 10] || '';
-        } else if (i == 11) {
-          resultObject[headers[i]] = '';
-        } else if (i > 11) {
+        if (i >= 11) {
           resultObject[headers[i]] = match[i - 11] || '';
         } else {
           resultObject[headers[i]] = '';
@@ -134,13 +128,24 @@ function TextPDF() {
     // const paylode = tableData;
     setLoading(true);
 
-    const paylode = tableData.map((obj) => {
+    let paylodeNull = tableData.map((obj) => {
       const updatedObj: any = {};
       for (const key in obj) {
         updatedObj[key] = obj[key] === '' ? null : obj[key];
       }
       return updatedObj;
     });
+
+    let paylode = paylodeNull.map((obj: any) => ({
+      ...obj,
+      budget_plan_amount: obj.budget_plan_amount != null ? parseFloat(obj.budget_plan_amount.replace(/,/g, '')) : null,
+      off_budget_money_amount:
+        obj.off_budget_money_amount != null ? parseFloat(obj.off_budget_money_amount.replace(/,/g, '')) : null,
+      category_amount: obj.category_amount != null ? parseFloat(obj.category_amount.replace(/,/g, '')) :null,
+    }));
+
+    console.log('paylode is ', paylode);
+
     // console.log('paylode is ', paylode);
 
     let res = [];
